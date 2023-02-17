@@ -366,6 +366,8 @@ let gastosFijosTotales =
 // console.log para registrar el ingreso
 console.log("Gastos fijos por mes es: " + gastosFijosTotales + " " + moneda);
 
+console.log(parseInt(gastosFijosTotales));
+
 ////////////////////////////////////////////////////////////////////////////////
 //COSTOS DE VIDA////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -403,11 +405,12 @@ for (let index = 0; index < costosDeVida.length; index++) {
       )
     );
   }
-  console.log("Costos de Vida Mensual/Parcial:" + resultado);
+  console.log([index] + " index / " + "Costos de Vida Mensual: " + resultado);
   //utilización del metodo push() del array.
   resultadoTotal.push(resultado);
 }
-console.log("resultadoTotal " + resultadoTotal);
+
+console.log(resultadoTotal);
 
 let costosFijosTotales = 0;
 
@@ -427,6 +430,8 @@ console.log(
   "Costo de vida fijos por mes es: " + costosFijosTotales + " " + moneda
 );
 
+console.log(parseInt(costosFijosTotales));
+
 // console.log utilizando el metodo join para registrar el ingreso del array y compararlo con la suma de Costos de vida fijos.
 console.log(
   "El resultado de los Costos de vida fijos por mes es la suma de los valores ingresados " +
@@ -440,6 +445,8 @@ console.log(
     " " +
     moneda
 );
+
+console.log(parseInt(gastosMasCostos));
 
 ////////////////////////////////////////////////////////////////////////////////
 // arrow_function calcularPorHora para sacar el valor por hora con parámetros dinámicos // Abstracción para reutilizar en Ingresos pretendidos, Gastos fijos y Costos de vida mensuales.
