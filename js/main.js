@@ -69,92 +69,170 @@ console.log("La moneda es: " + moneda);
 
 ////////////////////////////////////////////////////////////////////////////////
 // Solicitud de ingreso del monto que pretende ganar por mes.
+
 let ingresos = parseInt(
   prompt(
     "Calculemos TUS INGRESOS:\nIngresa EL MONTO en " +
       moneda +
       " de lo que pretendes ganar por Mes."
-  ).toLowerCase()
+  )
 );
+// variable para el string que devuelve la función chequearInputOperadorSimple
+let stringIngresos = "Pretensión de Ingresos mensuales: ";
+// variable para el string que devuelve el while en el else
+let stringIngresosPrompt =
+  "Ingresa EL MONTO en " + moneda + " de lo que pretendes ganar por Mes";
 
-while (isNaN(ingresos) || ingresos < 1) {
-  // Optimización del if con Operador ternario
-  ingresos < 1
-    ? alert("Debes Ingresar un número mayor a 0.")
-    : alert(
+////////////////////////////////////////////////////////////////////////////////
+//INGRESOS//////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+//Función chequearOperadorSimple////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+/* arrow_function con Operador Simple y parámetros para reutilizar en los inputs */
+const chequearInputOperadorSimple = (
+  varInputCantidad,
+  varPromptCantidad,
+  varPromptWhile
+) => {
+  let input = varInputCantidad;
+  while (isNaN(input) || input < 1) {
+    if (input < 1) {
+      alert("Debes Ingresar un número mayor a 0.");
+    } else {
+      alert(
         "No ingresaste un número válido. Si escribiste el número con letras vuelve a intentarlo con números."
       );
+    }
+    input = parseInt(prompt(varPromptWhile));
+  }
+  // console.log para registrar que los ingresos sean mayores que los gastos
+  console.log(varPromptCantidad + input);
+  return input;
+};
 
-  ingresos = parseInt(
-    prompt(
-      "Ingresa EL MONTO en " + moneda + " de lo que pretendes ganar por Mes."
-    ).toLowerCase()
-  );
-}
+////////////////////////////////////////////////////////////////////////////////
+
+/* Declaración de una variable para obtenter el valor del return de la variable input de la función chequearInputOperadorSimple */
+let inputIngresos = chequearInputOperadorSimple(
+  ingresos,
+  stringIngresos,
+  stringIngresosPrompt
+);
+
+// console.log para registrar el return de la función chequearInputOperadorSimple
+console.log(inputIngresos); // retornará el valor ingresado por el usuario en el prompt
 
 // console.log para registrar que los ingresos sean mayores que los gastos
-console.log("Pretension de ingresos mensuales: " + ingresos + " " + moneda);
+console.log(
+  "Pretension de ingresos mensuales: " + inputIngresos + " " + moneda
+);
+
+////////////////////////////////////////////////////////////////////////////////
+//DIAS//////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 ////////////////////////////////////////////////////////////////////////////////
 // Solicitud de ingreso de los días que pretende trabajar por mes.
 let dias = parseInt(
-  prompt(
-    "Ingresa La Cantidad de DÍAS que pretendes trabajar por Mes."
-  ).toLowerCase()
+  prompt("Ingresa La Cantidad de DÍAS que pretendes trabajar por Mes.")
 );
 
-while (isNaN(dias) || dias > 31 || dias < 1) {
-  // Optimización del if con Operador ternario
-  dias > 31 || dias < 1
-    ? alert("Debes Ingresar un número entre 1 y 31.")
-    : alert(
+// variable para el string que devuelve la función chequearInputOperadorDoble
+let stringDias = "Cantidad de días laborables por mes: ";
+
+// variable para el string que devuelve el while en el else
+let stringDiasPrompt =
+  "Ingresa La Cantidad de Días que pretendes trabajar por Mes";
+
+////////////////////////////////////////////////////////////////////////////////
+//Función chequearOperadorDoble/////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/* arrow_function con Operador Doble y parámetros para reutilizar en los inputs */
+
+const chequearInputOperadorDoble = (
+  varInputTiempo,
+  varPromptTiempo,
+  varPromptWhile,
+  valorMayorTiempo
+) => {
+  let input = varInputTiempo;
+  while (isNaN(input) || input > valorMayorTiempo || input < 1) {
+    if (input > valorMayorTiempo || input < 1) {
+      alert("Debes Ingresar un número del 1 al " + valorMayorTiempo);
+    } else {
+      alert(
         "No ingresaste un número válido. Si escribiste el número con letras vuelve a intentarlo con números."
       );
-  dias = parseInt(
-    prompt(
-      "Ingresa La Cantidad de DÍAS que pretendes trabajar por Mes."
-    ).toLowerCase()
-  );
-}
+    }
+    input = parseInt(prompt(varPromptWhile));
+  }
+  // console.log para registrar que los ingresos sean mayores que los gastos
+  console.log(varPromptTiempo + input);
+  return input;
+};
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
+/* Declaración de una variable para obtenter el valor del return de la variable input de la función chequearInputOperadorDoble */
+let inputDias = chequearInputOperadorDoble(
+  dias,
+  stringDias,
+  stringDiasPrompt,
+  31
+);
+
+// console.log para registrar el return de la función chequearInputOperadorSimple
+console.log(inputDias);
 // console.log para registrar el ingreso
-console.log("Cantidad de días laborables por mes: " + dias + " días.");
+console.log("Cantidad de días laborables por mes: " + inputDias + " días.");
+
+////////////////////////////////////////////////////////////////////////////////
+//HORAS//////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 // Solicitud de ingreso de las horas que pretende trabajar por día.
 let horas = parseInt(
-  prompt(
-    "Ingresa La Cantidad de HORAS que pretendes trabajar por Día."
-  ).toLowerCase()
+  prompt("Ingresa La Cantidad de HORAS que pretendes trabajar por Día.")
 );
 
-while (isNaN(horas) || horas > 24 || horas < 1) {
-  // Optimización del if con Operador ternario
-  horas > 24 || horas < 1
-    ? alert("Debes ingresar un número entre 1 y 24.")
-    : alert(
-        "No ingresaste un número válido. Si escribiste el número con letras vuelve a intentarlo con números."
-      );
+// variable para el string que devuelve la función chequearInputOperadorDoble
+let stringHoras = "Cantidad de horas laborables por día: ";
 
-  horas = parseInt(
-    prompt(
-      "Ingresa La Cantidad de Horas que pretendes trabajar por Día."
-    ).toLowerCase()
-  );
-}
+// variable para el string que devuelve el while en el else
+let stringHorasPrompt =
+  "Ingresa la Cantidad de Horas que pretendes trabajar por día";
 
-alert(
-  "Pretendes ganar " +
-    ingresos +
-    " " +
-    moneda +
-    " mensuales trabajando " +
-    horas +
-    " horas por día durante " +
-    dias +
-    " días por mes.\nPara lograrlo y cotizar los trabajos correctamente debemos calcular el precio a cobrar por Hora de Trabajo. Vamos a calcularlo ..."
+/* Declaración de una variable para obtenter el valor del return de la variable input de la función chequearInputOperadorDoble */
+let inputHoras = chequearInputOperadorDoble(
+  horas,
+  stringHoras,
+  stringHorasPrompt,
+  24
 );
+
+console.log(inputHoras);
 
 // console.log para registrar el ingreso
 console.log("Cantidad de horas laborables por mes es: " + horas + " horas.");
+
+////////////////////////////////////////////////////////////////////////////////
+
+alert(
+  "Pretendes ganar " +
+    inputIngresos +
+    " " +
+    moneda +
+    " mensuales durante " +
+    inputDias +
+    " días por mes trabajando " +
+    inputHoras +
+    " horas por día.\nPara lograrlo y cotizar los trabajos correctamente debemos calcular el precio a cobrar por Hora de Trabajo. Vamos a calcularlo ..."
+);
+
+////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 //Objetos
 //Calcular la costosFijosTotales de Gastos Fijos en un objeto.
