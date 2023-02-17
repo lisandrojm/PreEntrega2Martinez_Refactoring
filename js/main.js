@@ -126,9 +126,10 @@ let inputIngresos = chequearInputOperadorSimple(
 console.log(inputIngresos); // retornará el valor ingresado por el usuario en el prompt
 
 // console.log para registrar que los ingresos sean mayores que los gastos
-console.log(
+
+/* console.log(
   "Pretension de ingresos mensuales: " + inputIngresos + " " + moneda
-);
+); */
 
 ////////////////////////////////////////////////////////////////////////////////
 //DIAS//////////////////////////////////////////////////////////////////////////
@@ -188,7 +189,7 @@ let inputDias = chequearInputOperadorDoble(
 // console.log para registrar el return de la función chequearInputOperadorSimple
 console.log(inputDias);
 // console.log para registrar el ingreso
-console.log("Cantidad de días laborables por mes: " + inputDias + " días.");
+/* console.log("Cantidad de días laborables por mes: " + inputDias + " días."); */
 
 ////////////////////////////////////////////////////////////////////////////////
 //HORAS//////////////////////////////////////////////////////////////////////////
@@ -216,9 +217,9 @@ let inputHoras = chequearInputOperadorDoble(
 console.log(inputHoras);
 
 // console.log para registrar el ingreso
-console.log(
+/* console.log(
   "Cantidad de horas laborables por mes es: " + inputHoras + " horas."
-);
+); */
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -487,13 +488,13 @@ precioPorHora < gastosPorHora + costosPorHora
         ".\n" +
         "\n" +
         "Para ganar  " +
-        ingresos +
+        inputIngresos +
         " " +
         moneda +
         " mensuales trabajando " +
-        horas +
+        inputHoras +
         " horas por día durante " +
-        dias +
+        inputDias +
         " días por mes, debes cobrar " +
         precioPorHoraLibreDeGastos.toFixed(2) +
         " " +
