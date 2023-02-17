@@ -99,13 +99,13 @@ const chequearInputOperadorSimple = (
 ) => {
   let input = varInputCantidad;
   while (isNaN(input) || input < 1) {
-    if (input < 1) {
-      alert("Debes Ingresar un número mayor a 0.");
-    } else {
-      alert(
-        "No ingresaste un número válido. Si escribiste el número con letras vuelve a intentarlo con números."
-      );
-    }
+    // Optimización del if con Operador ternario
+    input < 1
+      ? alert("Debes Ingresar un número mayor a 0.")
+      : alert(
+          "No ingresaste un número válido. Si escribiste el número con letras vuelve a intentarlo con números."
+        );
+
     input = parseInt(prompt(varPromptWhile));
   }
   // console.log para registrar que los ingresos sean mayores que los gastos
@@ -160,13 +160,13 @@ const chequearInputOperadorDoble = (
 ) => {
   let input = varInputTiempo;
   while (isNaN(input) || input > valorMayorTiempo || input < 1) {
-    if (input > valorMayorTiempo || input < 1) {
-      alert("Debes Ingresar un número del 1 al " + valorMayorTiempo);
-    } else {
-      alert(
-        "No ingresaste un número válido. Si escribiste el número con letras vuelve a intentarlo con números."
-      );
-    }
+    // Optimización del if con Operador ternario
+    input > valorMayorTiempo || input < 1
+      ? alert("Debes Ingresar un número del 1 al " + valorMayorTiempo)
+      : alert(
+          "No ingresaste un número válido. Si escribiste el número con letras vuelve a intentarlo con números."
+        );
+
     input = parseInt(prompt(varPromptWhile));
   }
   // console.log para registrar que los ingresos sean mayores que los gastos
@@ -216,7 +216,9 @@ let inputHoras = chequearInputOperadorDoble(
 console.log(inputHoras);
 
 // console.log para registrar el ingreso
-console.log("Cantidad de horas laborables por mes es: " + horas + " horas.");
+console.log(
+  "Cantidad de horas laborables por mes es: " + inputHoras + " horas."
+);
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -233,7 +235,12 @@ alert(
 );
 
 ////////////////////////////////////////////////////////////////////////////////
+
 ////////////////////////////////////////////////////////////////////////////////
+//GASTOS FIJOS//////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 //Objetos
 //Calcular la costosFijosTotales de Gastos Fijos en un objeto.
 
@@ -254,80 +261,115 @@ class GastosFijos {
   }
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//GASTOS OFICINA////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+// Solicitud de ingreso del monto de los gastos de oficina.
 let gastosOficina = parseInt(
   prompt(
     "Calculemos TUS GASTOS FIJOS mensuales:\nIngresa tus Gastos de OFICINA en " +
       moneda.toUpperCase() +
       " por Mes."
-  ).toLowerCase()
+  )
 );
 
-while (isNaN(gastosOficina) || gastosOficina < 1) {
-  // Optimización del if con Operador ternario
-  gastosOficina < 1
-    ? alert("Debes Ingresar un número mayor a 0.")
-    : alert(
-        "No ingresaste un número válido. Si escribiste el número con letras vuelve a intentarlo con números."
-      );
+// variable para el string que devuelve la función chequearInputOperadorSimple
+let stringGastosDeOficina = "Gastos de Oficina Mensuales: ";
+// variable para el string que devuelve el while en el else
+let stringGastosDeOficinaPrompt =
+  "Ingresa tus Gastos de OFICINA en " + moneda.toUpperCase() + " por Mes.";
 
-  gastosOficina = parseInt(
-    prompt(
-      "Ingresa tus Gastos de OFICINA en " + moneda.toUpperCase() + " por Mes."
-    ).toLowerCase()
-  );
-}
+/* Declaración de una variable para obtenter el valor del return de la variable input de la función chequearInputOperadorSimple */
+let inputGastosDeOficina = chequearInputOperadorSimple(
+  gastosOficina,
+  stringGastosDeOficina,
+  stringGastosDeOficinaPrompt
+);
 
+// console.log para registrar el return de la función chequearInputOperadorSimple
+console.log(inputGastosDeOficina); // retornará el valor ingresado por el usuario en el prompt
+
+////////////////////////////////////////////////////////////////////////////////
+//GASTOS INTERNET////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Solicitud de ingreso del monto de los gastos de internet.
 let gastosInternet = parseInt(
   prompt(
     "Ingresa tus Gastos de INTERNET en " + moneda.toUpperCase() + " por Mes."
-  ).toLowerCase()
+  )
 );
 
-while (isNaN(gastosInternet) || gastosInternet < 1) {
-  // Optimización del if con Operador ternario
-  gastosInternet < 1
-    ? alert("Debes Ingresar un número mayor a 0.")
-    : alert(
-        "No ingresaste un número válido. Si escribiste el número con letras vuelve a intentarlo con números."
-      );
+// variable para el string que devuelve la función chequearInputOperadorSimple
+let stringGastosDeInternet = "Gastos de Internet Mensuales: ";
+// variable para el string que devuelve el while en el else
+let stringGastosDeInternetPrompt =
+  "Ingresa tus Gastos de INTERNET en " + moneda.toUpperCase() + " por Mes.";
 
-  gastosInternet = parseInt(
-    prompt(
-      "Ingresa tus Gastos de INTERNET en " + moneda.toUpperCase() + " por Mes."
-    ).toLowerCase()
-  );
-}
+/* Declaración de una variable para obtenter el valor del return de la variable input de la función chequearInputOperadorSimple */
+let inputGastosDeInternet = chequearInputOperadorSimple(
+  gastosInternet,
+  stringGastosDeInternet,
+  stringGastosDeInternetPrompt
+);
+
+// console.log para registrar el return de la función chequearInputOperadorSimple
+console.log(inputGastosDeInternet); // retornará el valor ingresado por el usuario en el prompt
+
+////////////////////////////////////////////////////////////////////////////////
+//GASTOS SOFTWARE////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+// Solicitud de ingreso del monto de los gastos de software.
 let gastosSoftware = parseInt(
   prompt(
     "Ingresa tus Gastos de SOFTWARE en " + moneda.toUpperCase() + " por Mes."
-  ).toLowerCase()
+  )
 );
 
-while (isNaN(gastosSoftware) || gastosSoftware < 1) {
-  // Optimización del if con Operador ternario
-  gastosSoftware < 1
-    ? alert("Debes Ingresar un número mayor a 0.")
-    : alert(
-        "No ingresaste un número válido. Si escribiste el número con letras vuelve a intentarlo con números."
-      );
+// variable para el string que devuelve la función chequearInputOperadorSimple
+let stringGastosDeSoftware = "Gastos de Software Mensuales: ";
+// variable para el string que devuelve el while en el else
+let stringGastosDeSoftwarePrompt =
+  "Ingresa tus Gastos de SOFTWARE en " + moneda.toUpperCase() + " por Mes.";
 
-  gastosSoftware = parseInt(
-    prompt(
-      "Ingresa tus Gastos de SOFTWARE en " + moneda.toUpperCase() + " por Mes."
-    ).toLowerCase()
-  );
-}
+/* Declaración de una variable para obtenter el valor del return de la variable input de la función chequearInputOperadorSimple */
+let inputGastosDeSoftware = chequearInputOperadorSimple(
+  gastosSoftware,
+  stringGastosDeSoftware,
+  stringGastosDeSoftwarePrompt
+);
 
-const persona1 = new GastosFijos(gastosOficina, gastosInternet, gastosSoftware);
+// console.log para registrar el return de la función chequearInputOperadorSimple
+console.log(inputGastosDeSoftware); // retornará el valor ingresado por el usuario en el prompt
 
+// construcción de un objeto de la class Gastos fijos
+const persona1 = new GastosFijos(
+  inputGastosDeOficina,
+  inputGastosDeInternet,
+  inputGastosDeSoftware
+);
+
+// ejecución
 persona1.resumen();
 
 //Declaración de la variable gastosFijosTotales para  guardar la suma de los Gastos fijos. Para cuando haya que sacar el total
 // de los gastos por hora reutilizando la arrow_function calcularPorHora.
-let gastosFijosTotales = gastosOficina + gastosInternet + gastosSoftware;
+let gastosFijosTotales =
+  inputGastosDeOficina + inputGastosDeInternet + inputGastosDeSoftware;
 
 // console.log para registrar el ingreso
 console.log("Gastos fijos por mes es: " + gastosFijosTotales + " " + moneda);
+
+////////////////////////////////////////////////////////////////////////////////
+//COSTOS DE VIDA////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 ////////////////////////////////////////////////////////////////////////////////
 //Arrays
 //Calcular la costosFijosTotales de Costos de Vida en un array
@@ -345,13 +387,13 @@ for (let index = 0; index < costosDeVida.length; index++) {
     )
   );
   while (isNaN(resultado) || resultado < 1) {
-    // Optimización del if con Operador ternario
-    resultado < 1
-      ? alert("Debes Ingresar un número mayor a 0.")
-      : alert(
-          "No ingresaste un número válido. Si escribiste el número con letras vuelve a intentarlo con números."
-        );
-
+    if (resultado < 1) {
+      alert("Debes Ingresar un número mayor a 0.");
+    } else {
+      alert(
+        "No ingresaste un número válido. Si escribiste el número con letras vuelve a intentarlo con números."
+      );
+    }
     resultado = parseInt(
       prompt(
         "Calculemos TUS COSTOS DE VIDA mensuales:\nIngresa el costo mensual en  " +
@@ -361,9 +403,11 @@ for (let index = 0; index < costosDeVida.length; index++) {
       )
     );
   }
+  console.log("Costos de Vida Mensual/Parcial:" + resultado);
   //utilización del metodo push() del array.
   resultadoTotal.push(resultado);
 }
+console.log("resultadoTotal " + resultadoTotal);
 
 let costosFijosTotales = 0;
 
@@ -403,9 +447,9 @@ const calcularPorHora = (totalIngresos, totalDias, totalHoras) => {
   return totalIngresos / (totalDias * totalHoras);
 };
 
-let precioPorHora = calcularPorHora(ingresos, dias, horas);
-let gastosPorHora = calcularPorHora(gastosFijosTotales, dias, horas);
-let costosPorHora = calcularPorHora(costosFijosTotales, dias, horas);
+let precioPorHora = calcularPorHora(inputIngresos, inputDias, inputHoras);
+let gastosPorHora = calcularPorHora(gastosFijosTotales, inputDias, inputHoras);
+let costosPorHora = calcularPorHora(costosFijosTotales, inputDias, inputHoras);
 
 ////////////////////////////////////////////////////////////////////////////////
 let precioPorHoraLibreDeGastos = precioPorHora + gastosPorHora + costosPorHora;
@@ -469,7 +513,7 @@ const chequearSueldoPromedio = (ingresoPretendido, sueldo) => {
         " que es el sueldo promedio de un programador Junior. Valora tu trabajo. Si quieres volver a intentarlo presiona F5.";
 };
 const testJunior = chequearSueldoPromedio(
-  ingresos,
+  inputIngresos,
   sueldoPromedioDeUnProgramadorJunior
 );
 alert(testJunior);
