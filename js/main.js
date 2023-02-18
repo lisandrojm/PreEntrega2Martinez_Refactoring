@@ -91,7 +91,7 @@ let stringIngresosPrompt =
 //Función chequearOperadorSimple////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-/* arrow_function con Operador Simple y parámetros para reutilizar en los inputs */
+/* ARROW FUNCTION con Operador Simple y parámetros para reutilizar en los inputs */
 const chequearInputOperadorSimple = (
   varInputCantidad,
   varPromptCantidad,
@@ -151,7 +151,7 @@ let stringDiasPrompt =
 ////////////////////////////////////////////////////////////////////////////////
 //Función chequearOperadorDoble/////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-/* arrow_function con Operador Doble y parámetros para reutilizar en los inputs */
+/* ARROW FUNCTION con Operador Doble y parámetros para reutilizar en los inputs */
 
 const chequearInputOperadorDoble = (
   varInputTiempo,
@@ -369,7 +369,7 @@ console.log(software);
 
 /* Declaración de la variable gastosFijosTotales para  guardar la suma
 de los Gastos fijos. Para cuando haya que sacar el total de los gastos
-por hora utilizando la arrow_function calcularPorHora. */
+por hora utilizando la ARROW FUNCTION calcularPorHora. */
 
 // optimizado con la desestructuración.
 /* let gastosFijosTotales =
@@ -379,7 +379,7 @@ por hora utilizando la arrow_function calcularPorHora. */
 let gastosFijosTotales = oficina + internet + software;
 
 // console.log para registrar el ingreso
-console.log("Gastos fijos por mes es: " + gastosFijosTotales + " " + moneda);
+console.log("Gastos fijos mensulaes: " + gastosFijosTotales + " " + moneda);
 
 console.log(parseInt(gastosFijosTotales));
 
@@ -425,7 +425,32 @@ for (let index = 0; index < costosDeVida.length; index++) {
   resultadoTotal.push(resultado);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+console.log("resultadoTotalTest");
 console.log(resultadoTotal);
+//Utilización del Operador SPREAD para detectar el costo de vida mas alto y en el caso
+//que ese sea Otros Costos decirle al usuario que lo revise para intentar bajarlo.
+
+console.log("Spreed operator test");
+
+console.log(
+  "El valor mayor de tus Costos de Vida es :" + Math.max(...resultadoTotal)
+);
+
+// console.log para registrar el ingreso
+console.log(parseInt(Math.max(...resultadoTotal)));
+
+resultadoTotal[2] > resultadoTotal[0] || resultadoTotal[2] > resultadoTotal[1]
+  ? console.log(
+      //Utilización del Operador SPREAD para concatenar el valor ingresado más alto
+      "El valor mayor de tus Costos de vida es de " +
+        Math.max(...resultadoTotal) +
+        " " +
+        moneda +
+        " que corresponde a Otros Costos, los cuales pueden no ser imprescindibles. Tenlo en cuenta e intenta reducirlos a futuro."
+    )
+  : console.log("El balance de tus Costos de Vida es lógico.");
+////////////////////////////////////////////////////////////////////////////////
 
 let costosFijosTotales = 0;
 
@@ -464,7 +489,7 @@ console.log(
 console.log(parseInt(gastosMasCostos));
 
 ////////////////////////////////////////////////////////////////////////////////
-// arrow_function calcularPorHora para sacar el valor por hora con parámetros dinámicos // Abstracción para reutilizar en Ingresos pretendidos, Gastos fijos y Costos de vida mensuales.
+// ARROW FUNCTION calcularPorHora para sacar el valor por hora con parámetros dinámicos // Abstracción para reutilizar en Ingresos pretendidos, Gastos fijos y Costos de vida mensuales.
 const calcularPorHora = (totalIngresos, totalDias, totalHoras) => {
   return totalIngresos / (totalDias * totalHoras);
 };
@@ -521,6 +546,7 @@ precioPorHora < gastosPorHora + costosPorHora
 
 const sueldoPromedioDeUnProgramadorJunior = 500;
 
+// ARROW FUNCTION para validar si el ingreso pretendido es superior al ingreso de un programador junior.
 const chequearSueldoPromedio = (ingresoPretendido, sueldo) => {
   return ingresoPretendido >= sueldo
     ? "Tus ingresos pretendidos son superiores a " +
