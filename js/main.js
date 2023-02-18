@@ -56,7 +56,7 @@ while (
 // Cambio del string "dolar o "dólar" o "euro" de singular a plural para el caso
 // en el que el usuario lo ingrese en singular. Para que quede bien en la redacción.
 
-// Optimización del if con Operador ternario
+// Optimización del if con OPERADOR TERNARIO.
 moneda === "dolar" ||
 moneda === "dólar" ||
 moneda === "dolares" ||
@@ -99,7 +99,7 @@ const chequearInputOperadorSimple = (
 ) => {
   let input = varInputCantidad;
   while (isNaN(input) || input < 1) {
-    // Optimización del if con Operador ternario
+    // Optimización del if con OPERADOR TERNARIO.
     input < 1
       ? alert("Debes Ingresar un número mayor a 0.")
       : alert(
@@ -161,7 +161,7 @@ const chequearInputOperadorDoble = (
 ) => {
   let input = varInputTiempo;
   while (isNaN(input) || input > valorMayorTiempo || input < 1) {
-    // Optimización del if con Operador ternario
+    // Optimización del if con OPERADOR TERNARIO.
     input > valorMayorTiempo || input < 1
       ? alert("Debes Ingresar un número del 1 al " + valorMayorTiempo)
       : alert(
@@ -359,10 +359,24 @@ const persona1 = new GastosFijos(
 // ejecución
 persona1.resumen();
 
-//Declaración de la variable gastosFijosTotales para  guardar la suma de los Gastos fijos. Para cuando haya que sacar el total
-// de los gastos por hora reutilizando la arrow_function calcularPorHora.
-let gastosFijosTotales =
-  inputGastosDeOficina + inputGastosDeInternet + inputGastosDeSoftware;
+// DESESTRUCTURACIÓN del objeto creado con el constructor class: persona1
+const { oficina, internet, software } = persona1;
+
+console.log("Desestructuración Test");
+console.log(oficina);
+console.log(internet);
+console.log(software);
+
+/* Declaración de la variable gastosFijosTotales para  guardar la suma
+de los Gastos fijos. Para cuando haya que sacar el total de los gastos
+por hora utilizando la arrow_function calcularPorHora. */
+
+// optimizado con la desestructuración.
+/* let gastosFijosTotales =
+  inputGastosDeOficina + inputGastosDeInternet + inputGastosDeSoftware; */
+
+//utilizacion de las propiedades DESESTRUCTURADAS del objeto persona1
+let gastosFijosTotales = oficina + internet + software;
 
 // console.log para registrar el ingreso
 console.log("Gastos fijos por mes es: " + gastosFijosTotales + " " + moneda);
@@ -462,7 +476,7 @@ let costosPorHora = calcularPorHora(costosFijosTotales, inputDias, inputHoras);
 ////////////////////////////////////////////////////////////////////////////////
 let precioPorHoraLibreDeGastos = precioPorHora + gastosPorHora + costosPorHora;
 
-// Optimización del if con Operador ternario
+// Optimización del if con OPERADOR TERNARIO.
 precioPorHora < gastosPorHora + costosPorHora
   ? alert(
       "Tus pretensiones de Ingreso son mas bajas que tus gastos. Esperemos que no trabajes de programador."
