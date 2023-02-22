@@ -1,8 +1,8 @@
 # PreEntrega2Martinez_Refactoring
 
-## Freelo Calculator
+Esta es el refactoring de la PreEntrega2 con la inclusión de funciones con parámetros para reducir el código de acuerdo a la devolución del tutor.
 
-Una herramienta simple para que sepas cuanto cobrar como freelancer.
+Implementación de operadores avanzados y desestructuración para aplicar los conceptos.
 
 Link Github Pages:
 https://lisandrojm.github.io/PreEntrega2Martinez_Refactoring/
